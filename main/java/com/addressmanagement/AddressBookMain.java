@@ -16,6 +16,7 @@ public class AddressBookMain {
         do {
             System.out.println("--------Welcome to Address Book---------");
             System.out.println("Enter '1' to Add contact");
+            System.out.println("Enter '2' to Edit contact");
             System.out.println("Enter '0' to Exit");
             //Try block  handles the input of the user
             try {
@@ -39,8 +40,19 @@ public class AddressBookMain {
                     contacts.addContact();
                     addressBook.put(contacts.getFirstName(), contacts);
                     break;
+                case 2:
+                    System.out.println("enter the first name which u want to edit");
+                    String updat_name = sc.nextLine();
+                    Contacts upDatedObj = search(updat_name, addressBook);
+                    addressBook.remove(upDatedObj.getFirstName(),upDatedObj);
+                    upDatedObj.addContact();
+                    System.out.println("Searched contact"+upDatedObj + "First name:"+upDatedObj.getFirstName());
+                    addressBook.put(upDatedObj.getFirstName(), upDatedObj);
 
             }
         }
+    public static Contacts search(String searchByFirstName,Map<String, Contacts> mapVariable) {
+        return mapVariable.get(searchByFirstName);
+    }
 }
 
