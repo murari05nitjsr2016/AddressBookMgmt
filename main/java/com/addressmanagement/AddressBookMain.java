@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class AddressBookMain {
+
     public static void main(String[] args) {
         //HashMap will store the contact Details
         Map<String, Contacts> addressBook = new HashMap<String, Contacts>();
@@ -17,6 +18,7 @@ public class AddressBookMain {
             System.out.println("--------Welcome to Address Book---------");
             System.out.println("Enter '1' to Add contact");
             System.out.println("Enter '2' to Edit contact");
+            System.out.println("Enter '3' to Delete contact");
             System.out.println("Enter '0' to Exit");
             //Try block  handles the input of the user
             try {
@@ -48,6 +50,10 @@ public class AddressBookMain {
                     upDatedObj.addContact();
                     System.out.println("Searched contact"+upDatedObj + "First name:"+upDatedObj.getFirstName());
                     addressBook.put(upDatedObj.getFirstName(), upDatedObj);
+                case 3:
+                    System.out.println("enter the first name which u want to delete : ");
+                    String dName = sc.nextLine();
+                    addressBook.remove(dName);
 
             }
         }
